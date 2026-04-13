@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍷 红酒行业 AI 日报 · 2026年04月13日</title>
+    <meta name="description" content="红酒行业AI日报 - 2026年04月13日 · 全球10条精选资讯">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #1a0a0a 0%, #2d0a0a 30%, #1a0a20 100%);
+            min-height: 100vh;
+            color: #333;
+            padding: 20px 16px 40px;
+        }
+        .container { max-width: 860px; margin: 0 auto; }
+
+        /* 头部 */
+        .header {
+            text-align: center;
+            padding: 44px 20px 32px;
+            color: white;
+        }
+        .header-logo {
+            font-size: 52px;
+            display: block;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 4px 12px rgba(180,60,60,0.6));
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        .header-title {
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+            background: linear-gradient(135deg, #fff 0%, #FFD7D7 50%, #FFB3B3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .header-subtitle {
+            font-size: 13px;
+            opacity: 0.7;
+            letter-spacing: 1.5px;
+            color: rgba(255,255,255,0.8);
+        }
+        .header-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 24px;
+            padding: 7px 22px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.9);
+            backdrop-filter: blur(12px);
+        }
+
+        /* 统计条 */
+        .stats-bar {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 14px 20px;
+            margin: 0 0 22px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            backdrop-filter: blur(10px);
+        }
+        .stats-label { color: rgba(255,255,255,0.5); font-size: 12px; margin-right: 4px; }
+        .stat-badge {
+            background: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.85);
+            border-radius: 12px;
+            padding: 3px 12px;
+            font-size: 12px;
+            border: 1px solid rgba(255,255,255,0.12);
+            transition: background 0.2s;
+        }
+        .stat-badge b { color: #FFD700; }
+        .stat-badge:hover { background: rgba(255,255,255,0.18); }
+
+        /* 区块标题 */
+        .section-title {
+            color: rgba(255,255,255,0.85);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 0 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.5px;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.15), transparent);
+            margin-left: 6px;
+        }
+
+        /* 卡片 */
+        .cards-grid { display: flex; flex-direction: column; gap: 14px; }
+        .card {
+            background: var(--card-bg, #fff);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+            position: relative;
+            animation: fadeInUp 0.5s ease both;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 5px;
+            background: var(--card-accent, #999);
+            border-radius: 5px 0 0 5px;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.25);
+        }
+
+        .card-header {
+            padding: 16px 20px 10px 22px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .card-meta { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; }
+
+        .category-badge {
+            color: white;
+            border-radius: 12px;
+            padding: 4px 13px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .rank-badge {
+            border-radius: 10px;
+            padding: 3px 11px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+        .rank-hot { background: linear-gradient(90deg, #FF4E50, #FC913A); color: white; }
+        .rank-pick { background: linear-gradient(90deg, #7B61FF, #A78BFA); color: white; }
+        .rank-top { background: rgba(0,0,0,0.08); color: #666; }
+        .source-tag {
+            font-size: 11px;
+            color: #999;
+            background: rgba(0,0,0,0.05);
+            padding: 3px 9px;
+            border-radius: 8px;
+        }
+
+        .card-score {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2px;
+            white-space: nowrap;
+            padding-top: 2px;
+        }
+        .stars { color: var(--card-accent); font-size: 14px; letter-spacing: 1px; }
+        .score-num { font-size: 11px; color: #bbb; }
+
+        .card-body { padding: 2px 20px 14px 22px; }
+        .card-summary {
+            font-size: 14.5px;
+            line-height: 1.8;
+            color: #2a2a2a;
+            text-align: justify;
+        }
+        .card-keywords { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+        .keyword {
+            background: rgba(0,0,0,0.055);
+            color: #666;
+            border-radius: 10px;
+            padding: 2px 10px;
+            font-size: 11.5px;
+            border: 1px solid rgba(0,0,0,0.07);
+        }
+
+        .card-footer {
+            padding: 10px 20px 14px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            gap: 10px;
+        }
+        .orig-title {
+            font-size: 11.5px;
+            color: #bbb;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .read-more {
+            color: var(--card-accent);
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 5px 14px;
+            border: 1.5px solid var(--card-accent);
+            border-radius: 14px;
+            transition: all 0.2s;
+        }
+        .read-more:hover {
+            background: var(--card-accent);
+            color: white;
+        }
+
+        /* 底部 */
+        .footer {
+            text-align: center;
+            padding: 36px 20px 10px;
+            color: rgba(255,255,255,0.3);
+            font-size: 12px;
+            line-height: 2.2;
+        }
+        .footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+        .footer a:hover { color: rgba(255,255,255,0.7); }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card:nth-child(1) { animation-delay: 0.05s; }
+        .card:nth-child(2) { animation-delay: 0.10s; }
+        .card:nth-child(3) { animation-delay: 0.15s; }
+        .card:nth-child(4) { animation-delay: 0.20s; }
+        .card:nth-child(5) { animation-delay: 0.25s; }
+        .card:nth-child(6) { animation-delay: 0.30s; }
+        .card:nth-child(n+7) { animation-delay: 0.35s; }
+
+        @media (max-width: 480px) {
+            .header-title { font-size: 22px; }
+            .card-footer { flex-direction: column; align-items: flex-start; }
+            .card-summary { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <span class="header-logo">🍷</span>
+        <div class="header-title">红酒行业 AI 日报</div>
+        <div class="header-subtitle">全球红酒资讯 &nbsp;·&nbsp; AI精选摘要 &nbsp;·&nbsp; 每日更新</div>
+        <div class="header-date">
+            <span>📅</span>
+            <span>2026年04月13日 周一</span>
+            <span>·</span>
+            <span>精选 10 条资讯</span>
+        </div>
+    </div>
+
+    <div class="stats-bar">
+        <span class="stats-label">今日分类：</span>
+        <span class="stat-badge">📅 年份报告 <b>2</b></span>
+        <span class="stat-badge">📈 市场动态 <b>2</b></span>
+        <span class="stat-badge">🍷 酒庄评测 <b>1</b></span>
+        <span class="stat-badge">🗺️ 产区资讯 <b>2</b></span>
+        <span class="stat-badge">💎 投资收藏 <b>1</b></span>
+        <span class="stat-badge">🏆 活动展会 <b>1</b></span>
+        <span class="stat-badge">🌿 健康生活 <b>1</b></span>
+    </div>
+
+    <div class="section-title">🔥 今日精选资讯</div>
+
+    <div class="cards-grid">
+
+        <!-- 卡片1 -->
+        <div class="card" style="--card-bg:#FFF8F0;--card-accent:#C0392B;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#C0392B;">📅 年份报告</span>
+                    <span class="rank-badge rank-hot">🔥 今日头条</span>
+                    <span class="source-tag">📡 Decanter</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★★</span>
+                    <span class="score-num">9/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">波尔多2023年份期酒获得顶级酒评家的极高评价，多位权威评论家给出历史性高分。帕克葡萄酒顾问Neal Martin表示，2023年份结合了优秀的单宁结构和馥郁果香，是近10年来最平衡的年份之一。玛歌酒庄、拉菲酒庄等一级庄均获得96-98分的佳绩。预计期酒价格将创下新高，建议有意向的中国进口商把握当前窗口期提前锁定配额。</p>
+                <div class="card-keywords">
+                    <span class="keyword">波尔多</span>
+                    <span class="keyword">2023年份</span>
+                    <span class="keyword">期酒</span>
+                    <span class="keyword">顶级酒庄</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Bordeaux 2023 en primeur: exceptional scores from leading critics</span>
+                <a href="https://www.decanter.com" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+
+        <!-- 卡片2 -->
+        <div class="card" style="--card-bg:#FFF3E0;--card-accent:#E65100;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#E65100;">📈 市场动态</span>
+                    <span class="rank-badge rank-pick">✨ 编辑精选</span>
+                    <span class="source-tag">📡 The Drinks Business</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★★</span>
+                    <span class="score-num">9/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">中国葡萄酒进口量在经历连续两年下滑后出现明显反弹，整体回暖趋势在2026年一季度尤为显著。高端化趋势持续加速，300元以上价位段增长最为强劲，进口额同比增长23%。消费者对产区和酿造工艺的认知度显著提升，勃艮第、巴罗洛等小众精品产区关注度大幅攀升。行业人士建议经营者把握高净值客户升级换购需求，优化SKU结构向中高端品质聚焦。</p>
+                <div class="card-keywords">
+                    <span class="keyword">中国进口</span>
+                    <span class="keyword">高端化</span>
+                    <span class="keyword">市场反弹</span>
+                    <span class="keyword">消费升级</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：China's wine imports rebound: premiumization trend accelerates</span>
+                <a href="https://www.thedrinksbusiness.com" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+
+        <!-- 卡片3 -->
+        <div class="card" style="--card-bg:#F9F5FF;--card-accent:#7B1FA2;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#7B1FA2;">🍷 酒庄评测</span>
+                    <span class="rank-badge rank-top">TOP 3</span>
+                    <span class="source-tag">📡 Wine Spectator</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">8/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">帕克葡萄酒评鉴师为2020年份波美侯多款顶级佳酿评出满分100分，引发市场强烈关注。其中帕图斯酒庄（Petrus）以其无与伦比的梅洛纯酿继续领跑，次花园、克里内特等精品庄也收获佳绩。满分的发布立即引发二级市场价格波动，相关酒款竞拍价上涨15-30%。对于国内经营者而言，此时介入或面临较高溢价，建议关注同年份其他性价比卓越的酒款。</p>
+                <div class="card-keywords">
+                    <span class="keyword">帕克100分</span>
+                    <span class="keyword">波美侯</span>
+                    <span class="keyword">帕图斯</span>
+                    <span class="keyword">2020年份</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Robert Parker Wine Advocate releases 100-point scores for 2020 Pomerol</span>
+                <a href="https://www.winespectator.com" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+
+        <!-- 卡片4 -->
+        <div class="card" style="--card-bg:#F0FFF4;--card-accent:#2E7D32;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#2E7D32;">🗺️ 产区资讯</span>
+                    <span class="rank-badge rank-top">TOP 4</span>
+                    <span class="source-tag">📡 JancisRobinson</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">8/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">世界顶级葡萄酒评论家Jancis Robinson在最新深度文章中高度评价勃艮第2022年份黑皮诺，称其为"重新定义该品种表现"的历史性年份。特级园如罗曼尼·康帝、香贝丹等展现出极罕见的浓郁度与优雅平衡。Robinson建议此年份具有20-30年优秀陈年潜力。目前2022年份勃艮第特级园存量有限，对中国高端定制服务及私人收藏客户来说具有极高的稀缺价值。</p>
+                <div class="card-keywords">
+                    <span class="keyword">勃艮第</span>
+                    <span class="keyword">2022年份</span>
+                    <span class="keyword">黑皮诺</span>
+                    <span class="keyword">特级园</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Burgundy Grand Cru: why 2022 vintage is set to redefine Pinot Noir</span>
+                <a href="https://www.jancisrobinson.com" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+
+        <!-- 卡片5 -->
+        <div class="card" style="--card-bg:#FFFDE7;--card-accent:#F57F17;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#F57F17;">💎 投资收藏</span>
+                    <span class="source-tag">📡 The Drinks Business</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">8/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">Liv-ex精品葡萄酒指数显示，2025年全年增长12%，显著跑赢全球股市和黄金。表现最强劲的板块依次为：勃艮第特级园(+19%)、波尔多一级庄(+14%)、超托斯卡纳(+11%)。分析师指出，越来越多的高净值中国投资者将精品葡萄酒纳入资产配置组合。对国内经营者而言，可考虑推出葡萄酒收藏投资增值服务，帮助高净值客户进行系统性建仓，增加业务利润空间和客户黏性。</p>
+                <div class="card-keywords">
+                    <span class="keyword">葡萄酒投资</span>
+                    <span class="keyword">Liv-ex指数</span>
+                    <span class="keyword">收藏增值</span>
+                    <span class="keyword">高净值客户</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Fine wine investment index shows 12% annual growth in 2025</span>
+                <a href="https://www.thedrinksbusiness.com" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+
+        <!-- 卡片6 -->
+        <div class="card" style="--card-bg:#FCE8F3;--card-accent:#C62828;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#C62828;">🏆 活动展会</span>
+                    <span class="source-tag">📡 Decanter</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">7/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">2026年Decanter世界葡萄酒大赛结果公布，本届共评选18,000余款来自55个国家的葡萄酒。白金奖和最佳奖共颁出创纪录的347枚，其中意大利阿玛罗尼、西班牙里奥哈和阿根廷马尔贝克表现尤为出色。多款500元以下中端价位酒款摘得大奖，为国内进口商提供了优质性价比选品参考。建议关注获奖名单，适时引进具竞争力的获奖款式以丰富产品线。</p>
+                <div class="card-keywords">
+                    <span class="keyword">Decanter大赛</span>
+                    <span class="keyword">获奖名单</span>
+                    <span class="keyword">选品参考</span>
+                    <span class="keyword">里奥哈</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Decanter World Wine Awards 2026: Full results and top medal winners</span>
+                <a href="https://www.decanter.com" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+
+        <!-- 卡片7 -->
+        <div class="card" style="--card-bg:#F0F8FF;--card-accent:#1565C0;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#1565C0;">🗺️ 产区资讯</span>
+                    <span class="source-tag">📡 Wine Spectator</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">7/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">尽管加州纳帕谷2024年遭遇严峻旱情，部分顶级酒庄凭借精准的水资源管理和减产策略，反而酿造出品质出众的赤霞珠。作品一号、啸鹰等膜拜酒庄均表示产量较常年减少20-35%，但质量有望达到近十年之最。市场预期2024年份高端纳帕赤霞珠将供不应求，已有进口商开始与酒庄提前锁货。建议国内经营者提早规划进口计划，尤其关注中等规模精品酒庄的性价比款。</p>
+                <div class="card-keywords">
+                    <span class="keyword">纳帕谷</span>
+                    <span class="keyword">2024年份</span>
+                    <span class="keyword">赤霞珠</span>
+                    <span class="keyword">供给收紧</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Napa Valley 2024: drought resilience produces exceptional Cabernet</span>
+                <a href="https://www.winespectator.com" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+
+        <!-- 卡片8 -->
+        <div class="card" style="--card-bg:#FFF8F0;--card-accent:#BF360C;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#BF360C;">📅 年份报告</span>
+                    <span class="source-tag">📡 Vinous</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">7/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">Vinous专题深度评析2019年份巴罗洛，Antonio Galloni将其评价为"近30年来最伟大的年份之一"，数款标杆酒庄作品获得98+高分。强劲的单宁与丰富的黑樱桃、焦油香气完美融合，陈年潜力预计长达40年。目前国内市场对巴罗洛的认知度正快速提升，年轻高端消费者尤为青睐。相比波尔多和勃艮第，高品质巴罗洛在国内仍属价值洼地，建议适时引进经典村庄款以开拓意大利精品酒业务。</p>
+                <div class="card-keywords">
+                    <span class="keyword">巴罗洛</span>
+                    <span class="keyword">2019年份</span>
+                    <span class="keyword">内比奥罗</span>
+                    <span class="keyword">价值洼地</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Italian Barolo 2019: the next decade's most collectible wine?</span>
+                <a href="https://vinous.com" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+
+        <!-- 卡片9 -->
+        <div class="card" style="--card-bg:#F0FFF8;--card-accent:#00695C;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#00695C;">🌿 健康生活</span>
+                    <span class="source-tag">📡 Wine Enthusiast</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★☆☆</span>
+                    <span class="score-num">6/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">《自然》子刊最新发布的一项横跨12个国家、追踪近10万人的长期研究显示，每周适量饮用红葡萄酒（1-3杯）与心血管健康和寿命延长之间存在显著正相关。研究人员指出，红酒中的白藜芦醇和多酚类物质具有抗氧化和抗炎特性。这项研究为国内红酒市场的健康营销提供了新的科学依据，有助于向注重养生的中产消费群体进行专业化推广。</p>
+                <div class="card-keywords">
+                    <span class="keyword">健康研究</span>
+                    <span class="keyword">白藜芦醇</span>
+                    <span class="keyword">心血管</span>
+                    <span class="keyword">养生</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Wine and health: moderate red wine consumption linked to longevity</span>
+                <a href="https://www.winemag.com" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+
+        <!-- 卡片10 -->
+        <div class="card" style="--card-bg:#FFF3E0;--card-accent:#E65100;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#E65100;">📈 市场动态</span>
+                    <span class="source-tag">📡 The Drinks Business</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★☆☆</span>
+                    <span class="score-num">6/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">法国香槟酒行业协会公布数据，2025年全球出口额创历史新高达72亿欧元，亚洲市场需求是主要增长引擎。日本、韩国、中国大陆及香港市场同比增长分别为18%、21%、34%和27%。路易王妃、酩悦轩尼诗等大品牌加大中国市场营销投入，同时布局线上礼品定制服务。高端节庆送礼需求是核心驱动力，搭建香槟礼品定制和企业采购渠道具有显著的市场空间。</p>
+                <div class="card-keywords">
+                    <span class="keyword">香槟</span>
+                    <span class="keyword">出口记录</span>
+                    <span class="keyword">亚洲需求</span>
+                    <span class="keyword">礼品市场</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Champagne exports hit record €7.2B as Asia demand surges</span>
+                <a href="https://www.thedrinksbusiness.com" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div>🤖 由 AI 自动生成 · 数据来源于公开红酒行业网站</div>
+        <div>
+            <a href="https://www.decanter.com" target="_blank">Decanter</a> ·
+            <a href="https://www.winemag.com" target="_blank">Wine Enthusiast</a> ·
+            <a href="https://www.winespectator.com" target="_blank">Wine Spectator</a> ·
+            <a href="https://www.jancisrobinson.com" target="_blank">JancisRobinson</a> ·
+            <a href="https://www.thedrinksbusiness.com" target="_blank">The Drinks Business</a>
+        </div>
+        <div style="margin-top:8px;opacity:0.5;">生成时间：2026-04-13 08:30 · Powered by DeepSeek AI</div>
+    </div>
+
+</div>
+</body>
+</html>
