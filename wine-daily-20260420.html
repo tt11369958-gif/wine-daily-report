@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍷 红酒行业日报 · 2026年04月20日</title>
+    <meta name="description" content="红酒行业AI日报 - 2026年04月20日 · 全球10条精选资讯">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #1a0a0a 0%, #2d0a0a 30%, #1a0a20 100%);
+            min-height: 100vh;
+            color: #333;
+            padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+
+        /* 头部 */
+        .header {
+            text-align: center;
+            padding: 40px 20px 30px;
+            color: white;
+        }
+        .header-logo {
+            font-size: 52px;
+            margin-bottom: 10px;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+        }
+        .header-title {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            margin-bottom: 6px;
+            background: linear-gradient(90deg, #FFD700, #FF6B35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header-subtitle {
+            font-size: 14px;
+            opacity: 0.75;
+            letter-spacing: 1px;
+        }
+        .header-date {
+            display: inline-block;
+            margin-top: 16px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 6px 20px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        /* 统计栏 */
+        .stats-bar {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.13);
+            border-radius: 16px;
+            padding: 14px 20px;
+            margin: 0 0 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+        .stats-bar .label { color: rgba(255,255,255,0.55); font-size: 12px; margin-right: 4px; }
+        .stat-badge {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 12px;
+            padding: 4px 12px;
+            font-size: 12px;
+            border: 1px solid rgba(255,255,255,0.13);
+        }
+        .stat-badge b { color: #FFD700; }
+
+        /* 搜索工具栏 */
+        .search-bar {
+            background: linear-gradient(135deg, #722F37, #8B0000);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 0 0 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(114, 47, 55, 0.4);
+        }
+        .search-bar-title {
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .search-bar-subtitle {
+            color: rgba(255,255,255,0.7);
+            font-size: 12px;
+            margin-bottom: 14px;
+        }
+        .search-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .search-input {
+            flex: 1;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            outline: none;
+            background: rgba(255,255,255,0.95);
+            color: #333;
+        }
+        .search-input::placeholder {
+            color: #999;
+        }
+        .search-btn {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #722F37;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .search-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+        .search-tips {
+            color: rgba(255,255,255,0.6);
+            font-size: 11px;
+            margin-top: 10px;
+        }
+        .search-tips span {
+            background: rgba(255,255,255,0.15);
+            padding: 2px 8px;
+            border-radius: 8px;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+        .search-tips span:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        /* 分类标题 */
+        .section-title {
+            color: rgba(255,255,255,0.85);
+            font-size: 15px;
+            font-weight: 600;
+            padding: 8px 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* 卡片 */
+        .card {
+            background: var(--card-bg, #fff);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(0,0,0,0.06);
+            position: relative;
+            margin-bottom: 16px;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: var(--card-accent, #999);
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+        }
+        .card-header {
+            padding: 16px 20px 10px 24px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .card-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+        .category-badge {
+            color: white;
+            border-radius: 12px;
+            padding: 3px 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .rank-badge {
+            border-radius: 10px;
+            padding: 3px 10px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        .rank-1 { background: linear-gradient(90deg, #FF6B35, #FF8C42); color: white; }
+        .rank-2 { background: linear-gradient(90deg, #7B61FF, #9B82FF); color: white; }
+        .rank-other { background: #e8e8e8; color: #666; }
+        .source-tag {
+            font-size: 11px;
+            color: #888;
+            background: rgba(0,0,0,0.05);
+            padding: 2px 8px;
+            border-radius: 8px;
+        }
+        .card-score {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            white-space: nowrap;
+        }
+        .stars { color: var(--card-accent); font-size: 14px; letter-spacing: 1px; }
+        .score-num { font-size: 11px; color: #aaa; margin-top: 2px; }
+        .card-body { padding: 0 20px 12px 24px; }
+        .card-summary {
+            font-size: 14.5px;
+            line-height: 1.75;
+            color: #2c2c2c;
+            text-align: justify;
+        }
+        .card-keywords { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+        .keyword {
+            background: rgba(0,0,0,0.06);
+            color: #555;
+            border-radius: 10px;
+            padding: 2px 10px;
+            font-size: 11px;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        .card-footer {
+            padding: 10px 20px 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            gap: 10px;
+        }
+        .orig-title {
+            font-size: 11px;
+            color: #aaa;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .read-more {
+            color: var(--card-accent);
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 4px 12px;
+            border: 1.5px solid var(--card-accent);
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+        .read-more:hover {
+            background: var(--card-accent);
+            color: white;
+        }
+
+        /* 底部 */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: rgba(255,255,255,0.38);
+            font-size: 12px;
+            line-height: 2;
+        }
+        .footer a { color: rgba(255,255,255,0.55); }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .card { animation: fadeInUp 0.4s ease both; }
+        .card:nth-child(1) { animation-delay: 0.05s; }
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.15s; }
+        .card:nth-child(4) { animation-delay: 0.2s; }
+        .card:nth-child(5) { animation-delay: 0.25s; }
+        .card:nth-child(n+6) { animation-delay: 0.3s; }
+
+        @media (max-width: 480px) {
+            .header-title { font-size: 22px; }
+            .card-footer { flex-direction: column; align-items: flex-start; }
+            .search-form { flex-direction: column; }
+            .search-btn { width: 100%; }
+        }
+    </style>
+    <script>
+        function doSearch() {
+            var wine = document.getElementById('wineSearch').value.trim();
+            if (!wine) {
+                alert('请输入酒款名称');
+                return false;
+            }
+            // 跳转到 Wine-Searcher 搜索页面
+            var url = 'https://www.wine-searcher.com/search?term=' + encodeURIComponent(wine) + '&mode=lst';
+            window.open(url, '_blank');
+            return false;
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <!-- 头部 -->
+    <div class="header">
+        <span class="header-logo">🍷</span>
+        <div class="header-title">红酒行业 AI 日报</div>
+        <div class="header-subtitle">全球红酒资讯 · AI精选摘要 · 每日更新</div>
+        <div class="header-date">📅 2026年04月20日 周一 · 精选 10 条资讯</div>
+    </div>
+
+    <!-- 统计栏 -->
+    <div class="stats-bar">
+        <span class="label">今日分类：</span>
+        <span class="stat-badge">📈 市场动态 <b>4</b></span><span class="stat-badge">🗺️ 产区资讯 <b>2</b></span><span class="stat-badge">🏆 活动展会 <b>1</b></span><span class="stat-badge">💎 投资收藏 <b>1</b></span><span class="stat-badge">🍷 酒庄评测 <b>1</b></span><span class="stat-badge">🔍 行业趋势 <b>1</b></span>
+    </div>
+
+    <!-- 搜索工具栏 -->
+    <div class="search-bar">
+        <div class="search-bar-title">
+            <span>🔍</span> 全球红酒比价查询
+        </div>
+        <div class="search-bar-subtitle">输入酒款名称，即可查询全球各大零售商实时价格</div>
+        <form class="search-form" onsubmit="return doSearch()">
+            <input type="text" class="search-input" id="wineSearch" placeholder="例如：Château Margaux 2015">
+            <button type="submit" class="search-btn">查 价 格</button>
+        </form>
+        <div class="search-tips">
+            试试搜索：
+            <span onclick="document.getElementById('wineSearch').value='Lafite Rothschild';document.querySelector('.search-form').onsubmit()">拉菲</span>
+            <span onclick="document.getElementById('wineSearch').value='Opus One';document.querySelector('.search-form').onsubmit()">作品一号</span>
+            <span onclick="document.getElementById('wineSearch').value='Penfolds Grange';document.querySelector('.search-form').onsubmit()">奔富葛兰许</span>
+        </div>
+    </div>
+
+    <!-- 卡片列表 -->
+    <div class="section-title">🔥 今日精选资讯</div>
+    <div class="cards-grid">
+        
+        <div class="card" style="--card-bg:#FCE4EC;--card-accent:#C62828;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#C62828;">
+                        🏆 活动展会
+                    </span>
+                    <span class="rank-badge rank-1">🔥 今日头条</span>
+                    <span class="source-tag">📡 The Drinks Business</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">8/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">2026年Vinitaly葡萄酒展在维罗纳圆满落幕，吸引了约9万名参观者，其中26%为国际访客。展会展现了意大利葡萄酒行业正处于变革期，传统观念正被新思路取代。尽管面临关税和酒精消费下降等挑战，但行业正积极寻求解决方案。展会强调健康生活方式趋势，如低酒精和无酒精葡萄酒的兴起，这对中国市场具有重要参考价值。中国进口商可关注意大利新兴产区和小众品种，把握消费升级机遇。</p>
+                <div class="card-keywords"><span class="keyword">Vinitaly 2026</span><span class="keyword">意大利葡萄酒</span><span class="keyword">健康趋势</span><span class="keyword">中国市场</span></div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Five key talking points from Vinitaly 2026</span>
+                <a href="https://www.thedrinksbusiness.com/2026/04/five-talking-points-from-vinitaly-2026/" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+        <div class="card" style="--card-bg:#FFF8E1;--card-accent:#F57F17;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#F57F17;">
+                        💎 投资收藏
+                    </span>
+                    <span class="rank-badge rank-2">✨ 编辑精选</span>
+                    <span class="source-tag">📡 The Drinks Business</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">8/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">根据WineCap年度财富报告，美国投资者正大幅增加对精品葡萄酒的资产配置。数据显示，33%的投资者将21-30%的财富投入精品葡萄酒，相比2025年无人配置超过20%的情况，呈现“巨大飞跃”。报告指出，精品葡萄酒已从投资组合的“边缘”转变为“核心防御支柱”。对中国市场而言，这反映了全球葡萄酒投资热潮，可为中国进口商和投资者提供参考，关注高价值酒款如波尔多、勃艮第等名庄酒，以把握国际趋势并优化采购策略。</p>
+                <div class="card-keywords"><span class="keyword">精品葡萄酒投资</span><span class="keyword">美国投资者</span><span class="keyword">资产配置</span><span class="keyword">WineCap报告</span></div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Fine wine maturing rapidly as an asset for US investors</span>
+                <a href="https://www.thedrinksbusiness.com/2026/04/fine-wine-maturing-rapidly-as-an-asset-for-us-investors/" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+        <div class="card" style="--card-bg:#FFF3E0;--card-accent:#E65100;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#E65100;">
+                        📈 市场动态
+                    </span>
+                    <span class="rank-badge rank-other">TOP 3</span>
+                    <span class="source-tag">📡 Wine Enthusiast</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">8/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">《葡萄酒爱好者》杂志发布2026年全球40款最佳起泡酒榜单，所有入选酒款价格均低于75美元。榜单覆盖多个产区，强调高性价比，打破“优质起泡酒必昂贵”的刻板印象。对中国市场而言，这为进口商和零售商提供了丰富的采购参考，尤其适合中端消费市场。消费者可借此探索多样化的起泡酒选择，提升日常饮用场景，如朋友聚餐或即兴庆祝，有助于推动起泡酒在中国市场的普及和销售增长。</p>
+                <div class="card-keywords"><span class="keyword">起泡酒榜单</span><span class="keyword">性价比</span><span class="keyword">全球产区</span><span class="keyword">中国市场</span></div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：The Best Sparkling Wines from Around the World—All Under $75</span>
+                <a href="https://www.wineenthusiast.com/toplists/top-sparkling-wines-2026/" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+        <div class="card" style="--card-bg:#FFF3E0;--card-accent:#E65100;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#E65100;">
+                        📈 市场动态
+                    </span>
+                    <span class="rank-badge rank-other">TOP 4</span>
+                    <span class="source-tag">📡 The Drinks Business</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">8/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">Liv-ex最新数据显示，在精品葡萄酒市场整体下滑的背景下，意大利顶级100款葡萄酒展现出韧性，托斯卡纳产区表现尤为突出。托斯卡纳市场份额持续增长，其中Masseto酒庄领跑，2020、2022、2016和2014年份价格年内涨幅均超5%。超级托斯卡纳葡萄酒在交易中占据主导地位，仅9款酒就贡献了托斯卡纳产区80%以上的交易价值。这对中国进口商和经销商具有重要参考价值，表明托斯卡纳高端葡萄酒，特别是超级托斯卡纳，在动荡市场中仍具投资潜力和稳定性，值得关注采购和库存策略调整。</p>
+                <div class="card-keywords"><span class="keyword">托斯卡纳</span><span class="keyword">超级托斯卡纳</span><span class="keyword">Liv-ex指数</span><span class="keyword">Masseto</span></div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Tuscany’s share of the fine wine market grows, as its index ...</span>
+                <a href="https://www.thedrinksbusiness.com/2026/04/tuscanys-share-of-the-fine-wine-market-grows-as-its-index-stabilises/" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+        <div class="card" style="--card-bg:#FFF3E0;--card-accent:#E65100;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#E65100;">
+                        📈 市场动态
+                    </span>
+                    
+                    <span class="source-tag">📡 The Drinks Business</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">8/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">印度最大葡萄酒生产商Sula Vineyards以2亿卢比（约160万英镑）收购了Moët Hennessy旗下的Domain Chandon India酒庄，包括土地、酒厂和葡萄园，但不涉及品牌。此次交易发生在印度马哈拉施特拉邦的纳西克产区，标志着Sula进一步巩固其50%的国内市场份额，并可能提升其高端起泡酒生产能力。对中国市场而言，这反映了新兴葡萄酒市场的整合趋势，为进口商和投资者提供了观察印度市场动态的案例，可能影响亚洲葡萄酒贸易格局，值得关注其后续发展对区域竞争的影响。</p>
+                <div class="card-keywords"><span class="keyword">Sula Vineyards</span><span class="keyword">Chandon India</span><span class="keyword">印度葡萄酒市场</span><span class="keyword">酒庄收购</span></div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Project Paradise: Inside Sula’s acquisition of Chandon India</span>
+                <a href="https://www.thedrinksbusiness.com/2026/04/project-paradise-inside-sulas-acquisition-of-chandon-india/" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+        <div class="card" style="--card-bg:#F3E5F5;--card-accent:#7B1FA2;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#7B1FA2;">
+                        🍷 酒庄评测
+                    </span>
+                    
+                    <span class="source-tag">📡 The Drinks Business</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">7/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">纳帕谷罗伯特·蒙大维酒庄在耗资2亿美元、历时三年的改造后，于4月20日重新开放其奥克维尔庄园。此次翻新是酒庄自1996年成立以来的首次重大升级，由所有者星座集团投资，旨在提升游客体验，包括导览酒窖、品鉴活动和庄园漫步。适逢酒庄60周年庆典，还推出了限量版2023年纪念款纳帕谷赤霞珠。对中国市场而言，这反映了高端酒庄投资趋势，可能带动进口需求，为经营者提供采购和营销新机会，增强品牌吸引力。</p>
+                <div class="card-keywords"><span class="keyword">罗伯特·蒙大维酒庄</span><span class="keyword">纳帕谷</span><span class="keyword">酒庄改造</span><span class="keyword">限量版赤霞珠</span></div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Robert Mondavi unveils Napa estate following three-year tran...</span>
+                <a href="https://www.thedrinksbusiness.com/2026/04/robert-mondavi-unveils-napa-estate-following-xxx-facelift/" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+        <div class="card" style="--card-bg:#EDE7F6;--card-accent:#4527A0;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#4527A0;">
+                        🔍 行业趋势
+                    </span>
+                    
+                    <span class="source-tag">📡 Wine Enthusiast</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">7/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">文章回顾了1976年“巴黎审判”盲品会，当时加州葡萄酒击败法国名酒，将纳帕谷推向世界舞台，开启了美国葡萄酒的黄金时代。如今，50年后，加州及美国葡萄酒面临新挑战，如气候变化、市场竞争等。这对中国市场经营者具有启示意义：美国葡萄酒品牌历史和市场地位值得关注，可作为进口和营销的参考点，同时提醒关注全球行业趋势变化，以调整采购和销售策略。</p>
+                <div class="card-keywords"><span class="keyword">巴黎审判</span><span class="keyword">加州葡萄酒</span><span class="keyword">纳帕谷</span><span class="keyword">行业趋势</span></div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：50 Years After the ‘Judgment of Paris,’ American Wine Is Onc...</span>
+                <a href="https://www.wineenthusiast.com/culture/judgment-of-paris-50th-anniversary/" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+        <div class="card" style="--card-bg:#FFF3E0;--card-accent:#E65100;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#E65100;">
+                        📈 市场动态
+                    </span>
+                    
+                    <span class="source-tag">📡 Wine Enthusiast</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">7/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">《葡萄酒爱好者》杂志推出首期“起泡酒特刊”，聚焦全球起泡酒市场，涵盖加州中央海岸、英国、卡瓦和香槟等产区。该刊发布“Top 40起泡酒榜单”，精选40款价格在75美元以下的优质起泡酒，强调其个性、新鲜感和庆典属性。对中国市场而言，这为进口商和零售商提供了高性价比的采购参考，迎合年轻消费者对平价起泡酒的需求，有助于拓展产品线并抓住节日消费趋势。</p>
+                <div class="card-keywords"><span class="keyword">起泡酒</span><span class="keyword">全球市场</span><span class="keyword">性价比</span><span class="keyword">采购参考</span></div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Bubbles Issue – 2026</span>
+                <a href="https://www.wineenthusiast.com/bubbles-issue-2026/" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+        <div class="card" style="--card-bg:#E8F5E9;--card-accent:#2E7D32;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#2E7D32;">
+                        🗺️ 产区资讯
+                    </span>
+                    
+                    <span class="source-tag">📡 Wine Enthusiast</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">7/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">在巴塞罗那葡萄酒周上，Corpinnat协会的品鉴会成为焦点，展示了2025年基酒和新款起泡酒。2025年被誉为本世纪最佳白葡萄酒年份，尤其以西班牙加泰罗尼亚佩内德斯产区的Xarel-lo、Macabeu等传统品种和Sumoll复兴品种酿造的复杂、新鲜酒款引人注目。Recaredo、Gramona等知名酒庄参与，其陈年酒款可与全球顶级起泡酒媲美。这对中国进口商意味着：关注Corpinnat高品质起泡酒，把握2025年份稀缺机会，可丰富高端产品线，迎合消费者对独特产区故事的需求。</p>
+                <div class="card-keywords"><span class="keyword">Corpinnat</span><span class="keyword">佩内德斯产区</span><span class="keyword">2025年份</span><span class="keyword">起泡酒</span></div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：Whatever You Do, Don’t Call It Cava</span>
+                <a href="https://www.wineenthusiast.com/culture/wine/cava-corpinnat/" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+        <div class="card" style="--card-bg:#E8F5E9;--card-accent:#2E7D32;">
+            <div class="card-header">
+                <div class="card-meta">
+                    <span class="category-badge" style="background:#2E7D32;">
+                        🗺️ 产区资讯
+                    </span>
+                    
+                    <span class="source-tag">📡 Wine Enthusiast</span>
+                </div>
+                <div class="card-score">
+                    <span class="stars">★★★★☆</span>
+                    <span class="score-num">7/10</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-summary">美国加州中央海岸正经历起泡酒热潮，从少数酒庄的利基市场发展为遍地开花的景象。这得益于定制起泡酒公司的兴起，它们为酒庄提供从基酒到成品贴标的快速服务，但产品同质化问题凸显。值得关注的是，该地区仍有酒庄坚持自主酿造，如蒙特雷萨利纳斯谷的几家领先生产商，它们专注于起泡酒或结合产区历史，打造独特风味。对中国市场而言，这反映了起泡酒消费的全球增长趋势，进口商可关注这些优质酒庄，引入差异化产品以满足国内日益多元的消费需求，尤其是年轻消费者对气泡饮品的偏好。</p>
+                <div class="card-keywords"><span class="keyword">加州中央海岸</span><span class="keyword">起泡酒</span><span class="keyword">定制酿造</span><span class="keyword">产区历史</span></div>
+            </div>
+            <div class="card-footer">
+                <span class="orig-title">原文：There’s a Glorious Bubbles Boom on California’s Central Coas...</span>
+                <a href="https://www.wineenthusiast.com/wine-types/sparkling-wine/central-coast-bubbles/" target="_blank" class="read-more">阅读原文 →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer">
+        <div>🤖 由 AI 自动生成 · 数据来源于公开红酒行业网站</div>
+        <div>Decanter · Wine Enthusiast · Wine Spectator · JancisRobinson · Wine-Searcher</div>
+        <div>💰 <a href="https://www.wine-searcher.com" target="_blank">Wine-Searcher 全球红酒比价</a> · 支持查询各国零售价</div>
+        <div style="margin-top:8px;">
+            生成时间：2026-04-20 08:47 ·
+            待配置 GitHub Pages
+        </div>
+    </div>
+</div>
+</body>
+</html>
